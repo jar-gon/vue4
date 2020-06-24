@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-icon": "bin/build-icon"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
@@ -20,13 +22,20 @@
     "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "ant-design-vue": "^1.6.4",
     "babel-eslint": "^10.1.0",
+    "basic-css": "^2.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
+    "less-loader": "^6.1.2",
     "prettier": "^1.19.1",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.7",
+    "stylus-less": "^1.2.2",
     "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webfonts-generator": "^0.4.0"
   }
 }

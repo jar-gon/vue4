@@ -1,0 +1,28 @@
+@font-face
+  font-family "{{fontName}}"
+  src {{{src}}}
+
+$icon-base
+  font-family "{{fontName}}"
+  font-style normal
+  font-weight normal
+  line-height 1
+  vertical-align -2px
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+icon($name, $family = 1)
+  if $family
+    @extend $icon-base
+  @extend .{{baseSelector}}-{$name}:before
+
+.{{baseSelector}}
+  @extend $icon-base
+
+  &.lhi
+    line-height inherit
+{{#each codepoints}}
+
+.{{../baseSelector}}-{{@key}}:before
+  content "\\{{this}}"
+{{/each}}

@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+process.chdir(__dirname + '/../');
+
+var fs = require('fs');
+var path = require('path');
+
+var NAME = 'icon';
+var SRC = 'src/icons/';
+var DEST = 'src/assets/font/';
+var CSS = SRC + 'index.styl';
+var TEMPLATE = SRC + 'template.hbs';
+var FONT_URL = '../assets/font/';
+var HASH = 0;
+
+require('webfonts-generator')({
+  files: fs.readdirSync(SRC)
+    .filter(function (filename) {
+      return path.extname(filename) === '.svg';
+    })
+    .map(function (filename) {
+      return SRC + filename;
+    }),
+  dest: DEST,
+  fontName: NAME,
+  css: false,
+  cssFontsUrl: FONT_URL,
+  cssTemplate: TEMPLATE,
+  templateOptions: {
+    baseSelector: NAME
+  },
+  types: [ 'eot', 'woff', 'ttf', 'svg' ]
+}, function (error, result) {
+  if (error) {
+    console.error(error);
+    process.exit(1);
+  }
+  var data = result.generateCss();
+  data = data.replace(/,\n/g, ', ');
+  data = HASH ? data.replace(new RegExp('(\\?[\\da-z]{' + HASH + '})[^#"]+', 'g'), '$1') : data.replace(/\?[^#"]+/g, '');
+  fs.writeFileSync(CSS, data, "utf8");
+});

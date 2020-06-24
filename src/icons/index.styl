@@ -1,0 +1,29 @@
+@font-face
+  font-family "icon"
+  src url("../assets/font/icon.eot#iefix") format("embedded-opentype"), url("../assets/font/icon.woff") format("woff"), url("../assets/font/icon.ttf") format("truetype"), url("../assets/font/icon.svg#icon") format("svg")
+
+$icon-base
+  font-family "icon"
+  font-style normal
+  font-weight normal
+  line-height 1
+  vertical-align -2px
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+icon($name, $family = 1)
+  if $family
+    @extend $icon-base
+  @extend .icon-{$name}:before
+
+.icon
+  @extend $icon-base
+
+  &.lhi
+    line-height inherit
+
+.icon-alert:before
+  content "\f101"
+
+.icon-number:before
+  content "\f102"
