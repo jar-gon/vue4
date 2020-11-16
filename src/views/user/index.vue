@@ -39,6 +39,9 @@ export default {
       ConvertNormalStatus
     }
   },
+  mounted() {
+    console.info(this)
+  },
   methods: {
     afterClose() {
       this.loadItems()

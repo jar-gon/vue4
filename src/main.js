@@ -6,6 +6,15 @@ import "./apis"
 
 import { Modal } from 'ant-design-vue'
 
+var EventBus = new Vue()
+Object.defineProperties(Vue.prototype, {
+  $bus: {
+    get: function () {
+      return EventBus
+    }
+  }
+})
+
 import "./stylus/index.less"
 import "./stylus/index.styl"
 
