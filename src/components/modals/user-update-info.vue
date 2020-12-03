@@ -4,6 +4,7 @@
 import { modalFormMixin } from 'components/mixin/modal-form'
 
 import { notificationTask } from 'utils/task'
+import { mobileFn, email } from 'utils/validators'
 
 import userApi from 'apis/user'
 
@@ -20,7 +21,8 @@ export default {
   },
   data() {
     return {
-      title: '修改用户'
+      title: '修改用户',
+      mobile: ''
     }
   },
   methods: {
@@ -39,6 +41,11 @@ export default {
             {
               required: true,
               message: 'Please input your mobile!'
+            },
+            {
+              // pattern: email,
+              validator: mobileFn,
+              message: '请输入正确的手机号'
             }
           ]
         },
@@ -49,6 +56,10 @@ export default {
             {
               required: true,
               message: 'Please input your email!'
+            },
+            {
+              pattern: email,
+              message: '请输入正确的邮箱'
             }
           ]
         }
