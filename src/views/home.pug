@@ -1,6 +1,12 @@
 .home
+  router-link(:to="{name: 'user', query: {age: 18}}") user
   A
   B
   h2(v-show='num') {{ num }}
   div hello {{ _appSelf.account.username }}
   div hello {{ account.username }}
+  C
+    template(#footer)
+      h2 footer
+    template(#header="{msg}")
+      h2 header{{msg}}

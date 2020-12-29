@@ -12,4 +12,11 @@ const router = new VueRouter({
   routes
 })
 
+// router.beforeEach((to, from, next) => {
+//   console.info(to, '全局前置守卫')
+//   console.info(from, '全局前置守卫')
+//   if (to.name === 'home') next({ name: 'user' })
+//   next()
+// })
+
 export default router

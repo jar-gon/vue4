@@ -40,7 +40,7 @@ export default {
     }
   },
   mounted() {
-    console.info(this)
+    console.info(this.$route.query)
   },
   methods: {
     afterClose() {

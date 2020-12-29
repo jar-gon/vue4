@@ -5,6 +5,7 @@ import { mapGetters } from 'vuex'
 
 import A from 'components/a'
 import B from 'components/b'
+import C from 'components/c'
 
 // import EventBus from 'utils/event-bus'
 
@@ -12,7 +13,8 @@ export default {
   name: 'Home',
   components: {
     A,
-    B
+    B,
+    C
   },
   inject: [ "_appSelf" ],
   data() {

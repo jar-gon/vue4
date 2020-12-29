@@ -2,6 +2,8 @@ import Vue from "vue"
 import App from "./App.vue"
 import router from "./router"
 import store from "./store"
+import './utils/directive'
+import './utils/filter'
 import "./apis"
 
 import { Modal } from 'ant-design-vue'
